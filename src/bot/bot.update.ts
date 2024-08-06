@@ -1,12 +1,15 @@
 import { Update, Ctx, Start, Help, On, Hears, Message } from 'nestjs-telegraf';
 import { Scenes } from 'telegraf';
+import { Inject } from '@nestjs/common';
+import { KNEX_INSTANCE } from '../knex/knex.module';
+import { Knex } from 'knex';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Context extends Scenes.SceneContext {}
 
 @Update()
 export class BotUpdate {
-  constructor() {} // @InjectBot('one_love_spending_bot') private readonly bot: Telegraf<Context>,
+  constructor(@Inject(KNEX_INSTANCE) private readonly knex: Knex) {} // @InjectBot('one_love_spending_bot') private readonly bot: Telegraf<Context>,
 
   @Start()
   async start(ctx: Context) {
