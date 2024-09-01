@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { BotModule } from './bot/bot.module';
 import { KnexModule } from './knex/knex.module';
 import { ConfigService, ConfigModule } from '@nestjs/config';
+import { SpendingsModule } from './spendings/spendings.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
+    SpendingsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

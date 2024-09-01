@@ -7,8 +7,8 @@ import { knex } from 'knex';
 import { ConfigModule } from '@nestjs/config';
 import { Module, Global } from '@nestjs/common';
 
-export const KNEX_OPTIONS = 'KNEX_OPTIONS';
-export const KNEX_INSTANCE = 'KNEX_INSTANCE';
+export const KNEX_OPTIONS = Symbol('KNEX_OPTIONS');
+export const KNEX_INSTANCE = Symbol('KNEX_INSTANCE');
 @Global()
 @Module({})
 export class KnexModule {
